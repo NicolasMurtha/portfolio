@@ -1,5 +1,4 @@
-@media(max-width: 1280px) {
-
+@media (max-width: 1280px) {
   .cabecalho {
     padding: 30px;
   }
@@ -22,8 +21,7 @@
   }
 }
 
-@media(max-width: 425px) {
-
+@media (max-width: 425px) {
   .home .info h1 {
     font-size: 30px;
   }
