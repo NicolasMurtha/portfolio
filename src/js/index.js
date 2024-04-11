@@ -15,5 +15,5 @@ botao.addEventListener('click', () => {
     });
   })
 })
-
+botao.classList.add("remover");
 
