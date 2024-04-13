@@ -207,6 +207,12 @@ body {
 .footer {
   text-align: center;
   font-size: xx-small;
+  font-weight: bold;
+}
+
+.coracao {
+  animation: pulsacao 0.8s infinite;
+  padding-left: 5px;
 }
 
 @keyframes gradient-animation {
@@ -220,5 +226,19 @@ body {
 
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@keyframes pulsacao {
+  0% {
+    transform: scale(1.1);
+  }
+
+  30% {
+    transform: scale(1.4);
+  }
+
+  60% {
+    transform: scale(1.8);
   }
 }
