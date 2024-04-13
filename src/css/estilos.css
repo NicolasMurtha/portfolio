@@ -204,6 +204,11 @@ body {
   display: none;
 }
 
+.footer {
+  text-align: center;
+  font-size: xx-small;
+}
+
 @keyframes gradient-animation {
   0% {
     background-position: 0% 50%;
