@@ -131,8 +131,8 @@ body {
 }
 
 .projetos .projeto {
-  max-width: 260px;
-  max-height: 500px;
+  width: 260px;
+  height: 360px; 
   position: relative;
   display: none;
 }
