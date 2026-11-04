@@ -1,200 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nicolas Murtha - Desenvolvedor Fullstack</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Nicolas Murtha — Desenvolvedor Full Stack</title>
+    <meta name="author" content="Nicolas Murtha" />
+    <meta
+      name="description"
+      content="Portfólio de Nicolas Murtha, desenvolvedor full stack com foco em aplicações web, integração de sistemas, automação e IA."
     />
+    <meta property="og:title" content="Nicolas Murtha — Desenvolvedor Full Stack" />
+    <meta
+      property="og:description"
+      content="Portfólio de Nicolas Murtha, desenvolvedor full stack com foco em aplicações web, integração de sistemas, automação e IA."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
     />
-
-    <link rel="stylesheet" href="./src/css/reset.css" />
-    <link rel="stylesheet" href="./src/css/estilos.css" />
-    <link rel="stylesheet" href="./src/css/responsivo.css" />
+    <!-- Aplica o tema salvo antes da renderização (evita "piscar") -->
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
   </head>
-
   <body>
-    <header class="cabecalho">
-      <a href="#mecontratapfv">
-        <h1 class="logo">NM</h1>
-      </a>
-
-      <nav class="menu">
-        <ul>
-          <li>
-            <a href="#projetos"> Meus Projetos</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <section class="home">
-      <div class="info">
-        <h1 style="font-family: poppins">Ola! Meu nome é Nicolas Murtha</h1>
-        <p>
-          Sou formado em Análise e Desenvolvimento de Sistemas.
-        </p>
-        <p>
-          Atualmente atuando como desenvolvedor de software full stack, com atuação em automação de processos, integração de sistemas e aplicações de inteligência artificial.
-        </p>
-        <p>
-          Também sou apaixonado por Jogos, Academia e Música.
-        </p>
-
-
-        <ul class="redes">
-          <li>
-            <a href="https://www.linkedin.com/in/nicolas-murtha-5b292b1ba/" title="Ir para o Linkedin" target="_blank">
-              <i class="fa fa-linkedin"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://api.whatsapp.com/send/?phone=5516993827602&text=Ol%C3%A1+,+Nicolas+Murtha&type=phone_number&app_absent=0" title="Ir para o Whatsapp" target="_blank">
-              <i class="fa fa-whatsapp"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://github.com/NicolasMurtha" title="Ir para o Github" target="_blank">
-              <i class="fa fa-github"> </i>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-        <div class="container-selfie">
-          <div class="selfie-intern-shadow">
-            <img
-              src="./src/img/foto-perfil.png"
-              alt="Foto do portfólio do Nicolas"
-            />
-          </div>
-    </section>
-
-    <section class="projetos" id="projetos">
-      <h2>Meus Projetos</h2>
-
-      <div class="container-projetos">
-        <div class="projeto ativo">
-          <a href="https://github.com/NicolasMurtha/nlw-react" target="_blank">
-            <img src="src/img/react-attendees.png" alt="Projeto 1" />
-
-            <h3>Projeto 1</h3>
-
-            <div class="info-projeto">
-              <p>Gestão de participantes Utilizando Typescript, React, Tailwind</p>
-              <p>🔗 Ver no github</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="projeto ativo">
-          <a href="https://github.com/NicolasMurtha/crud-usuarios" target="_blank">
-            <img src="src/img/crud.png" alt="Projeto 2" />
-
-            <h3>Projeto 2</h3>
-
-            <div class="info-projeto">
-              <p>Crud usuários utilizando Node, React e Mysql</p>
-              <p>🔗 Ver no github</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="projeto ativo">
-          <a href="https://github.com/NicolasMurtha/calculadora-imc" target="_blank">
-            <img src="src/img/imc.png" alt="Projeto 1" />
-
-            <h3>Projeto 3</h3>
-
-            <div class="info-projeto">
-              <p>Calculadora de IMC utilizando Html+Css+JS</p>
-              <p>🔗 Ver no github</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="projeto ativo">
-          <a href="https://github.com/NicolasMurtha/Happy?tab=readme-ov-file" target="_blank">
-            <img src="src/img/happy.png" alt="Projeto 1" />
-
-            <h3>Projeto 4</h3>
-
-            <div class="info-projeto">
-              <p>Projeto para Orfanato Node+HB+CSS</p>
-              <p>🔗 Ver no github</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="projeto">
-          <a href="https://github.com/NicolasMurtha/calculadora" target="_blank">
-            <img src="src/img/calculadora.png" alt="Projeto 1" />
-
-            <h3>Projeto 5</h3>
-
-            <div class="info-projeto">
-              <p>Calculadora feito com HTML+CSS+JS</p>
-              <p>🔗 Ver no github</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="projeto">
-          <a href="link do projeto" target="_blank">
-            <img src="https://via.placeholder.com/515X700" alt="Projeto 1" />
-
-            <h3>Projeto 6</h3>
-
-            <div class="info-projeto">
-              <p>Informações sobre o projeto 6</p>
-              <p>🔗 Ver no github</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="projeto">
-          <a href="link do projeto" target="_blank">
-            <img src="https://via.placeholder.com/515X700" alt="Projeto 1" />
-
-            <h3>Projeto 7</h3>
-
-            <div class="info-projeto">
-              <p>Informações sobre o projeto 7</p>
-              <p>🔗 Ver no github</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="projeto">
-          <a href="link do projeto" target="_blank">
-            <img src="https://via.placeholder.com/515X700" alt="Projeto 1" />
-
-            <h3>Projeto 8</h3>
-
-            <div class="info-projeto">
-              <p>Informações sobre o projeto 8</p>
-              <p>🔗 Ver no github</p>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <button class="btn-mostrar-projetos">Mostrar mais</button>
-    </section>
-
-    <script src="./src/js/index.js"></script>
-
-    <footer class="footer">feito com <i class="coracao fa fa-heart"></i></footer>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
