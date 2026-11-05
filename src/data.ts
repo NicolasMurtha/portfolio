@@ -63,25 +63,25 @@ export type Highlight = {
 export const HIGHLIGHTS: Highlight[] = [
   {
     n: "01",
-    tag: "Site institucional · Bolsa de pesquisa FAPESP",
+    tag: "Site institucional",
     title: "IASense",
     desc: "Design e desenvolvimento do site institucional da IASense em Webflow, incluindo a implementação da identidade visual, a estrutura de páginas, o layout e a experiência responsiva.",
     contributions: [
       "Design completo do site",
       "Desenvolvimento e implementação em Webflow",
     ],
-    note: "O site e a marca pertencem à IASense. Fui responsável pelo design e pelo desenvolvimento a pedido da empresa, durante minha bolsa de pesquisa FAPESP.",
+    note: "O site e a marca pertencem à IASense. Fui responsável pelo design e pelo desenvolvimento a pedido da IASense, durante minha parceria com a empresa.",
     url: "https://www.iasense.com.br/",
     stack: ["Webflow"],
     img: asset("site-assets/iasense-hero.webp"),
   },
   {
     n: "02",
-    tag: "Pesquisa & desenvolvimento · Bolsa FAPESP TT-04",
+    tag: "Pesquisa & desenvolvimento · Bolsa de pesquisa FAPESP TT-04",
     title: "iABUG",
     desc: "Projeto de pesquisa e desenvolvimento para detecção de larvas da broca-da-cana (Diatraea saccharalis) com visão computacional e IA baseada em YOLO. A solução reúne um aplicativo para envio de imagens, uma API e um dashboard para visualizar e gerenciar os resultados das detecções.",
     contributions: [
-      "Participante do projeto como desenvolvedor full stack (bolsa FAPESP TT-04)",
+      "Participante do projeto como desenvolvedor full stack (bolsa de pesquisa FAPESP TT-04)",
       "Melhorias na API",
       "Desenvolvimento completo do dashboard web",
     ],
