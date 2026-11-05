@@ -26,7 +26,7 @@ export const RESUME_FILENAME = "Curriculo Nicolas Murtha.pdf";
 export const FACTS = [
   { k: "formação", v: "Análise e Desenvolvimento de Sistemas" },
   { k: "atuação", v: "automação · integrações · IA" },
-  { k: "destaques", v: "IASense · iABUG" },
+  { k: "destaques", v: "IASense · IABug" },
   { k: "status", v: "aberto a novas oportunidades" },
 ];
 
@@ -79,13 +79,14 @@ export const HIGHLIGHTS: Highlight[] = [
   {
     n: "02",
     tag: "Pesquisa & desenvolvimento · Bolsa de pesquisa FAPESP TT-04",
-    title: "iABUG",
+    title: "IABug",
     desc: "Projeto de pesquisa e desenvolvimento para detecção de larvas da broca-da-cana (*Diatraea saccharalis*) com visão computacional e IA baseada em YOLO. A solução reúne um aplicativo para envio de imagens, uma API e um dashboard para visualizar e gerenciar os resultados das detecções.",
     contributions: [
       "Participante do projeto como desenvolvedor full stack (bolsa de pesquisa FAPESP TT-04)",
       "Melhorias na API",
       "Desenvolvimento completo do dashboard web",
     ],
+    note: "O site e o projeto pertencem à IASense. Minha participação no desenvolvimento foi realizada durante minha bolsa de pesquisa FAPESP TT-04.",
     url: "https://iabug.iasense.com.br/",
     stack: [],
     img: asset("site-assets/iabug-referencia.webp"),
