@@ -50,23 +50,8 @@
   --input: oklch(90% 0.006 85);
   --ring: oklch(55% 0.17 145);
 
-  /* Seção Contato — no tema claro reproduz o cartão invertido original */
-  --contact-bg: var(--foreground);
-  --contact-fg: var(--background);
-  --contact-eyebrow: color-mix(in oklch, var(--background) 60%, transparent);
-  --contact-depth: 0 0 #0000;
-  --contact-line: color-mix(in oklch, var(--background) 30%, transparent);
-  --contact-line-hover: var(--background);
-  --contact-hover-bg: transparent;
-  --contact-btn-bg: var(--background);
-  --contact-btn-fg: var(--foreground);
-  --contact-btn-border: transparent;
-  --contact-link-fg: var(--background);
-  --contact-linkedin: currentColor;
-  --contact-linkedin-line: var(--background);
-  --contact-linkedin-bg: transparent;
-  --contact-github: currentColor;
-  --contact-github-line: var(--background);
+  /* Brilho verde do cartão de Contato (só no tema escuro) */
+  --contact-glow: none;
 }
 
 /* Tema escuro: segue o sistema, a menos que o usuário escolha claro */
@@ -88,26 +73,7 @@
     --border: oklch(32% 0.012 85);
     --input: oklch(32% 0.012 85);
     --ring: oklch(75% 0.15 150);
-
-  /* Seção Contato — superfície escura elevada em vez do cartão claro */
-  --contact-bg:
-    radial-gradient(120% 140% at 0% 0%, oklch(75% 0.15 150 / 0.05), transparent 55%), oklch(19.5% 0.009 85);
-  --contact-fg: oklch(93% 0.007 85);
-  --contact-eyebrow: oklch(66% 0.02 75);
-  --contact-depth:
-    0 0 0 1px oklch(28% 0.012 85), inset 0 1px 0 oklch(100% 0 0 / 0.04), 0 18px 40px -20px oklch(0% 0 0 / 0.6);
-  --contact-line: oklch(31% 0.012 85);
-  --contact-line-hover: oklch(44% 0.012 85);
-  --contact-hover-bg: oklch(22.5% 0.01 85);
-  --contact-btn-bg: oklch(24.5% 0.011 85);
-  --contact-btn-fg: oklch(88% 0.008 85);
-  --contact-btn-border: oklch(32% 0.012 85);
-  --contact-link-fg: oklch(80% 0.012 80);
-  --contact-linkedin: #70b5f9;
-  --contact-linkedin-line: rgb(112 181 249 / 0.45);
-  --contact-linkedin-bg: rgb(10 102 194 / 0.12);
-  --contact-github: oklch(80% 0.008 85);
-  --contact-github-line: oklch(46% 0.01 85);
+  --contact-glow: radial-gradient(120% 140% at 0% 0%, oklch(75% 0.15 150 / 0.09), transparent 55%);
   }
 }
 
@@ -129,26 +95,7 @@
   --border: oklch(32% 0.012 85);
   --input: oklch(32% 0.012 85);
   --ring: oklch(75% 0.15 150);
-
-  /* Seção Contato — superfície escura elevada em vez do cartão claro */
-  --contact-bg:
-    radial-gradient(120% 140% at 0% 0%, oklch(75% 0.15 150 / 0.05), transparent 55%), oklch(19.5% 0.009 85);
-  --contact-fg: oklch(93% 0.007 85);
-  --contact-eyebrow: oklch(66% 0.02 75);
-  --contact-depth:
-    0 0 0 1px oklch(28% 0.012 85), inset 0 1px 0 oklch(100% 0 0 / 0.04), 0 18px 40px -20px oklch(0% 0 0 / 0.6);
-  --contact-line: oklch(31% 0.012 85);
-  --contact-line-hover: oklch(44% 0.012 85);
-  --contact-hover-bg: oklch(22.5% 0.01 85);
-  --contact-btn-bg: oklch(24.5% 0.011 85);
-  --contact-btn-fg: oklch(88% 0.008 85);
-  --contact-btn-border: oklch(32% 0.012 85);
-  --contact-link-fg: oklch(80% 0.012 80);
-  --contact-linkedin: #70b5f9;
-  --contact-linkedin-line: rgb(112 181 249 / 0.45);
-  --contact-linkedin-bg: rgb(10 102 194 / 0.12);
-  --contact-github: oklch(80% 0.008 85);
-  --contact-github-line: oklch(46% 0.01 85);
+  --contact-glow: radial-gradient(120% 140% at 0% 0%, oklch(75% 0.15 150 / 0.09), transparent 55%);
 }
 
 @layer base {
