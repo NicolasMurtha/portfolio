@@ -53,7 +53,18 @@ export default function Highlights() {
             </div>
             <div className="flex items-center border-t border-border bg-muted/40 p-6 md:border-l md:border-t-0">
               {h.img ? (
-                <img src={h.img} alt={`Projeto ${h.title}`} className="aspect-[4/5] w-full rounded-lg object-cover" />
+                <figure className="w-full">
+                  <img
+                    src={h.img}
+                    alt={h.imgCaption ? `${h.imgCaption} do projeto ${h.title}` : `Projeto ${h.title}`}
+                    className={`${h.imgAspect ?? "aspect-[4/5]"} w-full rounded-lg object-cover`}
+                  />
+                  {h.imgCaption && (
+                    <figcaption className="mt-2 text-center font-mono text-[11px] text-muted-foreground">
+                      {h.imgCaption}
+                    </figcaption>
+                  )}
+                </figure>
               ) : (
                 <div className="w-full rounded-lg border border-dashed border-border bg-background p-8 text-center">
                   <div className="font-serif text-3xl font-semibold">{h.title}</div>

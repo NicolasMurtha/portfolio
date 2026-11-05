@@ -53,6 +53,10 @@ export type Highlight = {
   url: string;
   stack: string[];
   img?: string;
+  /** Proporção da imagem (padrão: aspect-[4/5]) */
+  imgAspect?: string;
+  /** Legenda abaixo da imagem (ex.: quando é ilustrativa) */
+  imgCaption?: string;
 };
 
 /** Projetos profissionais e de pesquisa (experiência profissional e bolsa FAPESP) */
@@ -77,13 +81,15 @@ export const HIGHLIGHTS: Highlight[] = [
     title: "iABUG",
     desc: "Projeto de pesquisa e desenvolvimento para detecção de larvas da broca-da-cana (Diatraea saccharalis) com visão computacional e IA baseada em YOLO. A solução reúne um aplicativo para envio de imagens, uma API e um dashboard para visualizar e gerenciar os resultados das detecções.",
     contributions: [
-      "Autor da proposta da bolsa FAPESP TT-04 que deu origem ao projeto",
+      "Participante do projeto como desenvolvedor full stack (bolsa FAPESP TT-04)",
       "Melhorias na API",
       "Desenvolvimento completo do dashboard web",
     ],
-    note: "Minha participação se concentrou na API e no dashboard. O aplicativo de envio de imagens faz parte da solução, mas não foi desenvolvido por mim.",
     url: "https://iabug.iasense.com.br/",
     stack: ["YOLO", "Visão computacional"],
+    img: asset("site-assets/iabug-referencia.webp"),
+    imgAspect: "aspect-square",
+    imgCaption: "Imagem ilustrativa",
   },
 ];
 
