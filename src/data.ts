@@ -45,6 +45,7 @@ export type Highlight = {
   /** Contexto do trabalho (empresa, bolsa, etc.) */
   tag: string;
   title: string;
+  /** Trechos entre *asteriscos* aparecem em itálico (ex.: nomes científicos) */
   desc: string;
   /** O que eu fiz de fato no projeto */
   contributions: string[];
@@ -79,7 +80,7 @@ export const HIGHLIGHTS: Highlight[] = [
     n: "02",
     tag: "Pesquisa & desenvolvimento · Bolsa de pesquisa FAPESP TT-04",
     title: "iABUG",
-    desc: "Projeto de pesquisa e desenvolvimento para detecção de larvas da broca-da-cana (Diatraea saccharalis) com visão computacional e IA baseada em YOLO. A solução reúne um aplicativo para envio de imagens, uma API e um dashboard para visualizar e gerenciar os resultados das detecções.",
+    desc: "Projeto de pesquisa e desenvolvimento para detecção de larvas da broca-da-cana (*Diatraea saccharalis*) com visão computacional e IA baseada em YOLO. A solução reúne um aplicativo para envio de imagens, uma API e um dashboard para visualizar e gerenciar os resultados das detecções.",
     contributions: [
       "Participante do projeto como desenvolvedor full stack (bolsa de pesquisa FAPESP TT-04)",
       "Melhorias na API",

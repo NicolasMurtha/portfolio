@@ -3,6 +3,11 @@ import { HIGHLIGHTS } from "../data";
 import SectionTitle from "./SectionTitle";
 import Tags from "./Tags";
 
+// Converte trechos entre *asteriscos* em itálico
+function withItalics(text: string) {
+  return text.split(/\*(.+?)\*/g).map((part, i) => (i % 2 ? <em key={i}>{part}</em> : part));
+}
+
 export default function Highlights() {
   return (
     <section id="destaques" className="mx-auto max-w-6xl px-6 py-20">
@@ -23,7 +28,7 @@ export default function Highlights() {
                 <span>{h.tag}</span>
               </div>
               <h3 className="mt-4 font-serif text-3xl font-semibold tracking-tight md:text-4xl">{h.title}</h3>
-              <p className="mt-4 max-w-xl text-muted-foreground">{h.desc}</p>
+              <p className="mt-4 max-w-xl text-muted-foreground">{withItalics(h.desc)}</p>
               <div className="mt-6">
                 <div className="font-mono text-xs uppercase tracking-wider text-primary">Minha contribuição</div>
                 <ul className="mt-3 space-y-1.5 text-sm">
