@@ -18,7 +18,7 @@ export default function Hero() {
 
       <div className="mt-8 flex flex-wrap gap-3">
         <a
-          href="#projetos"
+          href="#destaques"
           className="inline-flex items-center gap-2 rounded-md bg-foreground px-5 py-3 text-sm font-medium text-background transition hover:opacity-90"
         >
           Ver projetos <ArrowUpRight className="h-4 w-4" />

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Info } from "lucide-react";
 import { HIGHLIGHTS } from "../data";
 import SectionTitle from "./SectionTitle";
 import Tags from "./Tags";
@@ -6,7 +6,11 @@ import Tags from "./Tags";
 export default function Highlights() {
   return (
     <section id="destaques" className="mx-auto max-w-6xl px-6 py-20">
-      <SectionTitle n="02">Destaques</SectionTitle>
+      <SectionTitle n="02">Projetos profissionais e de pesquisa</SectionTitle>
+      <p className="-mt-4 mb-10 max-w-2xl text-muted-foreground">
+        Trabalhos realizados durante minha experiência profissional e bolsa de pesquisa FAPESP. Os
+        projetos pertencem às respectivas organizações; abaixo está a minha contribuição em cada um.
+      </p>
       <div className="space-y-8">
         {HIGHLIGHTS.map((h) => (
           <article
@@ -20,7 +24,24 @@ export default function Highlights() {
               </div>
               <h3 className="mt-4 font-serif text-3xl font-semibold tracking-tight md:text-4xl">{h.title}</h3>
               <p className="mt-4 max-w-xl text-muted-foreground">{h.desc}</p>
+              <div className="mt-6">
+                <div className="font-mono text-xs uppercase tracking-wider text-primary">Minha contribuição</div>
+                <ul className="mt-3 space-y-1.5 text-sm">
+                  {h.contributions.map((c) => (
+                    <li key={c} className="flex gap-2">
+                      <span className="text-primary">—</span>
+                      <span>{c}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               {h.stack.length > 0 && <Tags items={h.stack} className="mt-5" />}
+              {h.note && (
+                <p className="mt-5 flex max-w-xl gap-2 rounded-md bg-muted/60 px-3 py-2.5 text-xs text-muted-foreground">
+                  <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                  <span>{h.note}</span>
+                </p>
+              )}
               <a
                 href={h.url}
                 target="_blank"

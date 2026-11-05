@@ -33,31 +33,48 @@ export const STACK = [
 
 export type Highlight = {
   n: string;
+  /** Contexto do trabalho (empresa, bolsa, etc.) */
   tag: string;
   title: string;
   desc: string;
+  /** O que eu fiz de fato no projeto */
+  contributions: string[];
+  /** Esclarecimento de autoria/propriedade */
+  note?: string;
   url: string;
   stack: string[];
   img?: string;
 };
 
+/** Projetos profissionais e de pesquisa (experiência profissional e bolsa FAPESP) */
 export const HIGHLIGHTS: Highlight[] = [
   {
     n: "01",
-    tag: "Visão computacional & inteligência artificial",
+    tag: "Site institucional · Bolsa de pesquisa FAPESP",
     title: "IASense",
-    desc: "Plataforma de soluções end-to-end que combinam IA, visão computacional, edge computing, cloud, IoT e integrações — do campo à fábrica.",
+    desc: "Design e desenvolvimento do site institucional da IASense em Webflow, incluindo a implementação da identidade visual, a estrutura de páginas, o layout e a experiência responsiva.",
+    contributions: [
+      "Design completo do site",
+      "Desenvolvimento e implementação em Webflow",
+    ],
+    note: "O site e a marca pertencem à IASense. Fui responsável pelo design e pelo desenvolvimento a pedido da empresa, durante minha bolsa de pesquisa FAPESP.",
     url: "https://www.iasense.com.br/",
-    stack: [],
+    stack: ["Webflow"],
     img: asset("site-assets/iasense-hero.webp"),
   },
   {
     n: "02",
-    tag: "Produto de IA da IASense",
+    tag: "Pesquisa & desenvolvimento · Bolsa FAPESP TT-04",
     title: "iABUG",
-    desc: "Aplicação em que participei do desenvolvimento — descrição pendente: me diga em uma linha o que ela faz e eu escrevo aqui.",
+    desc: "Projeto de pesquisa e desenvolvimento para detecção de larvas da broca-da-cana (Diatraea saccharalis) com visão computacional e IA baseada em YOLO. A solução reúne um aplicativo para envio de imagens, uma API e um dashboard para visualizar e gerenciar os resultados das detecções.",
+    contributions: [
+      "Autor da proposta da bolsa FAPESP TT-04 que deu origem ao projeto",
+      "Melhorias na API",
+      "Desenvolvimento completo do dashboard web",
+    ],
+    note: "Minha participação se concentrou na API e no dashboard. O aplicativo de envio de imagens faz parte da solução, mas não foi desenvolvido por mim.",
     url: "https://iabug.iasense.com.br/",
-    stack: [],
+    stack: ["YOLO", "Visão computacional"],
   },
 ];
 
@@ -73,6 +90,7 @@ export type Project = {
   preview?: string;
 };
 
+/** Projetos pessoais, desenvolvidos de forma independente */
 export const PROJECTS: Project[] = [
   {
     n: "01",

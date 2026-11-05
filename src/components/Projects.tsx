@@ -6,7 +6,10 @@ import Tags from "./Tags";
 export default function Projects() {
   return (
     <section id="projetos" className="mx-auto max-w-6xl px-6 py-20">
-      <SectionTitle n="03">Projetos selecionados</SectionTitle>
+      <SectionTitle n="03">Projetos pessoais</SectionTitle>
+      <p className="-mt-4 mb-10 max-w-2xl text-muted-foreground">
+        Projetos que desenvolvi de forma independente, por iniciativa própria.
+      </p>
       <div className="grid gap-8 md:grid-cols-2">
         {PROJECTS.map((p) => (
           <a

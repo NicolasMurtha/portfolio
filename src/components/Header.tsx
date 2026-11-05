@@ -28,8 +28,8 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <nav className="hidden items-center gap-8 text-sm text-muted-foreground sm:flex">
             <a href="#stack" className="hover:text-foreground">Stack</a>
-            <a href="#destaques" className="hover:text-foreground">Destaques</a>
-            <a href="#projetos" className="hover:text-foreground">Projetos</a>
+            <a href="#destaques" className="hover:text-foreground">Profissional</a>
+            <a href="#projetos" className="hover:text-foreground">Pessoais</a>
             <a href="#sobre" className="hover:text-foreground">Sobre</a>
           </nav>
           <button
