@@ -1,12 +1,15 @@
 // Todo o conteúdo do site fica aqui — edite este arquivo para atualizar o portfólio.
 
+// Prefixa caminhos de public/ com o base do Vite (ex.: /portfolio/ no GitHub Pages)
+const asset = (path: string) => import.meta.env.BASE_URL + path;
+
 export const LINKS = {
   github: "https://github.com/NicolasMurtha",
   linkedin: "https://www.linkedin.com/in/nicolas-murtha-5b292b1ba/",
   whatsapp:
     "https://api.whatsapp.com/send/?phone=5516993827602&text=Ol%C3%A1+,+Nicolas+Murtha&type=phone_number&app_absent=0",
   // Coloque o arquivo em public/curriculo.pdf para habilitar o download
-  resume: "/curriculo.pdf",
+  resume: asset("curriculo.pdf"),
 };
 
 export const RESUME_FILENAME = "Curriculo Nicolas Murtha.pdf";
@@ -46,7 +49,7 @@ export const HIGHLIGHTS: Highlight[] = [
     desc: "Plataforma de soluções end-to-end que combinam IA, visão computacional, edge computing, cloud, IoT e integrações — do campo à fábrica.",
     url: "https://www.iasense.com.br/",
     stack: [],
-    img: "/site-assets/iasense-hero.webp",
+    img: asset("site-assets/iasense-hero.webp"),
   },
   {
     n: "02",
@@ -77,7 +80,7 @@ export const PROJECTS: Project[] = [
     desc: "Aplicativo desktop para organizar um backlog pessoal de jogos: listas em kanban, nota e review por jogo, com catálogo opcional via IGDB ou RAWG.",
     url: "https://github.com/NicolasMurtha/Jogoteca",
     stack: ["C#", ".NET 8", "WPF", "SQLite"],
-    img: "/site-assets/jogoteca_2_descobrir.jpg",
+    img: asset("site-assets/jogoteca_2_descobrir.jpg"),
   },
   {
     n: "02",
@@ -85,7 +88,7 @@ export const PROJECTS: Project[] = [
     desc: "Extensão para Chrome que mostra o preço de BTC e ETH em USD ou BRL em tempo real, com dados da API da CoinGecko. Publicada na Chrome Web Store.",
     url: "https://chromewebstore.google.com/detail/criptoprice/jbagdmhabgekcnichjjpbfneicoabjmh",
     stack: ["JavaScript", "Manifest V3", "CoinGecko API"],
-    preview: "/site-assets/criptoprice-popup.png",
+    preview: asset("site-assets/criptoprice-popup.png"),
   },
   {
     n: "03",
@@ -93,7 +96,7 @@ export const PROJECTS: Project[] = [
     desc: "Painel para gerenciar participantes de eventos, com listagem, busca e paginação.",
     url: "https://github.com/NicolasMurtha/nlw-react",
     stack: ["TypeScript", "React", "Tailwind"],
-    img: "/site-assets/211b0e915c5a94f7.png",
+    img: asset("site-assets/211b0e915c5a94f7.png"),
   },
   {
     n: "04",
@@ -101,6 +104,6 @@ export const PROJECTS: Project[] = [
     desc: "Plataforma para conectar pessoas a orfanatos, com cadastro e visualização de instituições.",
     url: "https://github.com/NicolasMurtha/Happy?tab=readme-ov-file",
     stack: ["Node.js", "Handlebars", "CSS"],
-    img: "/site-assets/36c3c9aadeb35f7b.png",
+    img: asset("site-assets/36c3c9aadeb35f7b.png"),
   },
 ];
