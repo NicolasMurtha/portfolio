@@ -12,6 +12,15 @@ export const LINKS = {
   resume: asset("curriculo.pdf"),
 };
 
+// Foto de perfil (recorte com fundo transparente), em duas resoluções para telas comuns e retina
+export const PROFILE_PHOTO = {
+  src: asset("site-assets/nicolas-murtha-720.webp"),
+  srcSet: `${asset("site-assets/nicolas-murtha-360.webp")} 360w, ${asset("site-assets/nicolas-murtha-720.webp")} 720w`,
+  width: 720,
+  height: 743,
+  alt: "Foto de Nicolas Murtha",
+};
+
 export const RESUME_FILENAME = "Curriculo Nicolas Murtha.pdf";
 
 export const FACTS = [
