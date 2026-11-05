@@ -73,7 +73,7 @@ export const HIGHLIGHTS: Highlight[] = [
     ],
     note: "O site e a marca pertencem à IASense. Fui responsável pelo design e pelo desenvolvimento a pedido da IASense, durante minha parceria com a empresa.",
     url: "https://www.iasense.com.br/",
-    stack: ["Webflow"],
+    stack: [],
     img: asset("site-assets/iasense-hero.webp"),
   },
   {
@@ -87,7 +87,7 @@ export const HIGHLIGHTS: Highlight[] = [
       "Desenvolvimento completo do dashboard web",
     ],
     url: "https://iabug.iasense.com.br/",
-    stack: ["YOLO", "Visão computacional"],
+    stack: [],
     img: asset("site-assets/iabug-referencia.webp"),
     imgAspect: "aspect-square",
     imgCaption: "Imagem ilustrativa",
