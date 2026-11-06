@@ -1,16 +1,18 @@
 // Todo o conteúdo do site fica aqui — edite este arquivo para atualizar o portfólio.
+// Os textos existem em português (pt) e inglês (en); o objeto `en` precisa ter a mesma estrutura do `pt`.
 
 // Prefixa caminhos de public/ com o base do Vite (ex.: /portfolio/ no GitHub Pages)
 const asset = (path: string) => import.meta.env.BASE_URL + path;
 
+export type Lang = "pt" | "en";
+
 export const LINKS = {
   github: "https://github.com/NicolasMurtha",
   linkedin: "https://www.linkedin.com/in/nicolas-murtha-5b292b1ba/",
-  whatsapp:
-    "https://api.whatsapp.com/send/?phone=5516993827602&text=Ol%C3%A1+,+Nicolas+Murtha&type=phone_number&app_absent=0",
-  // Coloque o arquivo em public/curriculo.pdf para habilitar o download
-  resume: asset("curriculo.pdf"),
 };
+
+const whatsapp = (text: string) =>
+  `https://api.whatsapp.com/send/?phone=5516993827602&text=${encodeURIComponent(text)}&type=phone_number&app_absent=0`;
 
 // Foto de perfil (recorte com fundo transparente), em duas resoluções para telas comuns e retina
 export const PROFILE_PHOTO = {
@@ -18,27 +20,7 @@ export const PROFILE_PHOTO = {
   srcSet: `${asset("site-assets/nicolas-murtha-360.webp")} 360w, ${asset("site-assets/nicolas-murtha-720.webp")} 720w`,
   width: 720,
   height: 743,
-  alt: "Foto de Nicolas Murtha",
 };
-
-export const RESUME_FILENAME = "Curriculo Nicolas Murtha.pdf";
-
-export const FACTS = [
-  { k: "formação", v: "Análise e Desenvolvimento de Sistemas" },
-  { k: "atuação", v: "automação · integrações · IA" },
-  { k: "destaques", v: "IASense · IABug" },
-  { k: "status", v: "aberto a novas oportunidades" },
-];
-
-export const STACK = [
-  { title: "Frontend", items: ["React", "TypeScript", "Tailwind CSS", "HTML / CSS / JS"] },
-  { title: "Backend", items: ["Node.js", "C# / .NET", "APIs REST", "Integração de sistemas"] },
-  { title: "Dados", items: ["MySQL", "SQLite", "Modelagem relacional", "SQL"] },
-  {
-    title: "Automação & IA",
-    items: ["Automação de processos", "Integração com LLMs", "Scripts & integrações"],
-  },
-];
 
 export type Highlight = {
   n: string;
@@ -60,41 +42,6 @@ export type Highlight = {
   imgCaption?: string;
 };
 
-/** Projetos profissionais e de pesquisa (experiência profissional e bolsa FAPESP) */
-export const HIGHLIGHTS: Highlight[] = [
-  {
-    n: "01",
-    tag: "Site institucional",
-    title: "IASense",
-    desc: "Design e desenvolvimento do site institucional da IASense em Webflow, incluindo a implementação da identidade visual, a estrutura de páginas, o layout e a experiência responsiva.",
-    contributions: [
-      "Design completo do site",
-      "Desenvolvimento e implementação em Webflow",
-    ],
-    note: "O site e a marca pertencem à IASense. Fui responsável pelo design e pelo desenvolvimento a pedido da IASense, durante minha parceria com a empresa.",
-    url: "https://www.iasense.com.br/",
-    stack: [],
-    img: asset("site-assets/iasense-hero.webp"),
-  },
-  {
-    n: "02",
-    tag: "Pesquisa & desenvolvimento · Bolsa de pesquisa FAPESP TT-04",
-    title: "IABug",
-    desc: "Projeto de pesquisa e desenvolvimento para detecção de larvas da broca-da-cana (*Diatraea saccharalis*) com visão computacional e IA baseada em YOLO. A solução reúne um aplicativo para envio de imagens, uma API e um dashboard para visualizar e gerenciar os resultados das detecções.",
-    contributions: [
-      "Participante do projeto como desenvolvedor full stack (bolsa de pesquisa FAPESP TT-04)",
-      "Melhorias na API",
-      "Desenvolvimento completo do dashboard web",
-    ],
-    note: "O site e o projeto pertencem à IASense. Minha participação no desenvolvimento foi realizada durante minha bolsa de pesquisa FAPESP TT-04.",
-    url: "https://iabug.iasense.com.br/",
-    stack: [],
-    img: asset("site-assets/iabug-referencia.webp"),
-    imgAspect: "aspect-square",
-    imgCaption: "Imagem ilustrativa",
-  },
-];
-
 export type Project = {
   n: string;
   title: string;
@@ -107,38 +54,285 @@ export type Project = {
   preview?: string;
 };
 
-/** Projetos pessoais, desenvolvidos de forma independente */
-export const PROJECTS: Project[] = [
-  {
-    n: "01",
-    title: "Jogoteca",
-    desc: "Aplicativo desktop para organizar um backlog pessoal de jogos: listas em kanban, nota e review por jogo, com catálogo opcional via IGDB ou RAWG.",
-    url: "https://github.com/NicolasMurtha/Jogoteca",
-    stack: ["C#", ".NET 8", "WPF", "SQLite"],
-    img: asset("site-assets/jogoteca_2_descobrir.jpg"),
+// Dados que não mudam com o idioma
+const IASENSE = { n: "01", title: "IASense", url: "https://www.iasense.com.br/", stack: [], img: asset("site-assets/iasense-hero.webp") };
+const IABUG = {
+  n: "02",
+  title: "IABug",
+  url: "https://iabug.iasense.com.br/",
+  stack: [],
+  img: asset("site-assets/iabug-referencia.webp"),
+  imgAspect: "aspect-square",
+};
+const JOGOTECA = {
+  n: "01",
+  title: "Jogoteca",
+  url: "https://github.com/NicolasMurtha/Jogoteca",
+  stack: ["C#", ".NET 8", "WPF", "SQLite"],
+  img: asset("site-assets/jogoteca_2_descobrir.jpg"),
+};
+const CRIPTOPRICE = {
+  n: "02",
+  title: "CriptoPrice",
+  url: "https://chromewebstore.google.com/detail/criptoprice/jbagdmhabgekcnichjjpbfneicoabjmh",
+  stack: ["JavaScript", "Manifest V3", "CoinGecko API"],
+  preview: asset("site-assets/criptoprice-popup.png"),
+};
+const PARTICIPANTES = {
+  n: "03",
+  url: "https://github.com/NicolasMurtha/nlw-react",
+  stack: ["TypeScript", "React", "Tailwind"],
+  img: asset("site-assets/211b0e915c5a94f7.png"),
+};
+const HAPPY = {
+  n: "04",
+  url: "https://github.com/NicolasMurtha/Happy?tab=readme-ov-file",
+  stack: ["Node.js", "Handlebars", "CSS"],
+  img: asset("site-assets/36c3c9aadeb35f7b.png"),
+};
+
+const pt = {
+  meta: {
+    htmlLang: "pt-BR",
+    title: "Nicolas Murtha — Desenvolvedor Full Stack",
+    description:
+      "Portfólio de Nicolas Murtha, desenvolvedor full stack com foco em aplicações web, integração de sistemas, automação e IA.",
   },
-  {
-    n: "02",
-    title: "CriptoPrice",
-    desc: "Extensão para Chrome que mostra o preço de BTC e ETH em USD ou BRL em tempo real, com dados da API da CoinGecko. Publicada na Chrome Web Store.",
-    url: "https://chromewebstore.google.com/detail/criptoprice/jbagdmhabgekcnichjjpbfneicoabjmh",
-    stack: ["JavaScript", "Manifest V3", "CoinGecko API"],
-    preview: asset("site-assets/criptoprice-popup.png"),
+  // Currículo baixado pelos botões (arquivo em public/)
+  resume: {
+    url: asset("curriculo.pdf"),
+    filename: "Curriculo Nicolas Murtha.pdf",
+    unavailable: "O currículo ainda não está disponível para download.",
   },
-  {
-    n: "03",
-    title: "Gestão de Participantes",
-    desc: "Painel para gerenciar participantes de eventos, com listagem, busca e paginação.",
-    url: "https://github.com/NicolasMurtha/nlw-react",
-    stack: ["TypeScript", "React", "Tailwind"],
-    img: asset("site-assets/211b0e915c5a94f7.png"),
+  whatsapp: whatsapp("Olá, Nicolas Murtha"),
+  ui: {
+    nav: { stack: "Stack", professional: "Profissional", personal: "Pessoais", about: "Sobre" },
+    resumeShort: "Currículo",
+    downloadResume: "Baixar currículo",
+    themeToLight: "Ativar modo claro",
+    themeToDark: "Ativar modo escuro",
+    themeLight: "Modo claro",
+    themeDark: "Modo escuro",
+    langLabel: "Idioma",
+    footer: "Feito com React + TypeScript",
   },
-  {
-    n: "04",
-    title: "Happy — Orfanatos",
-    desc: "Plataforma para conectar pessoas a orfanatos, com cadastro e visualização de instituições.",
-    url: "https://github.com/NicolasMurtha/Happy?tab=readme-ov-file",
-    stack: ["Node.js", "Handlebars", "CSS"],
-    img: asset("site-assets/36c3c9aadeb35f7b.png"),
+  hero: {
+    badge: "Disponível para novas oportunidades",
+    title: { before: "Desenvolvedor ", em: "full stack", after: " que constrói do banco à interface." },
+    intro:
+      "Sou Nicolas Murtha, formado em Análise e Desenvolvimento de Sistemas. Trabalho com aplicações web, automação de processos, integração de sistemas e soluções com inteligência artificial.",
+    seeProjects: "Ver projetos",
+    talk: "Falar comigo",
+    photoAlt: "Foto de Nicolas Murtha",
   },
-];
+  facts: [
+    { k: "formação", v: "Análise e Desenvolvimento de Sistemas" },
+    { k: "atuação", v: "automação · integrações · IA" },
+    { k: "destaques", v: "IASense · IABug" },
+    { k: "status", v: "aberto a novas oportunidades" },
+  ],
+  stack: {
+    title: "Stack técnica",
+    groups: [
+      { title: "Frontend", items: ["React", "TypeScript", "Tailwind CSS", "HTML / CSS / JS"] },
+      { title: "Backend", items: ["Node.js", "C# / .NET", "APIs REST", "Integração de sistemas"] },
+      { title: "Dados", items: ["MySQL", "SQLite", "Modelagem relacional", "SQL"] },
+      { title: "Automação & IA", items: ["Automação de processos", "Integração com LLMs", "Scripts & integrações"] },
+    ],
+  },
+  highlights: {
+    title: "Projetos profissionais e de pesquisa",
+    intro:
+      "Trabalhos realizados durante minha experiência profissional e bolsa de pesquisa FAPESP. Os projetos pertencem às respectivas organizações; abaixo está a minha contribuição em cada um.",
+    contribution: "Minha contribuição",
+    visit: "Visitar",
+    imgAlt: (title: string) => `Projeto ${title}`,
+    imgAltCaption: (caption: string, title: string) => `${caption} do projeto ${title}`,
+    pending: "// captura pendente",
+    items: [
+      {
+        ...IASENSE,
+        tag: "Site institucional",
+        desc: "Design e desenvolvimento do site institucional da IASense em Webflow, incluindo a implementação da identidade visual, a estrutura de páginas, o layout e a experiência responsiva.",
+        contributions: ["Design completo do site", "Desenvolvimento e implementação em Webflow"],
+        note: "O site e a marca pertencem à IASense. Fui responsável pelo design e pelo desenvolvimento a pedido da IASense, durante minha parceria com a empresa.",
+      },
+      {
+        ...IABUG,
+        tag: "Pesquisa & desenvolvimento · Bolsa de pesquisa FAPESP TT-04",
+        desc: "Projeto de pesquisa e desenvolvimento para detecção de larvas da broca-da-cana (*Diatraea saccharalis*) com visão computacional e IA baseada em YOLO. A solução reúne um aplicativo para envio de imagens, uma API e um dashboard para visualizar e gerenciar os resultados das detecções.",
+        contributions: [
+          "Participante do projeto como desenvolvedor full stack (bolsa de pesquisa FAPESP TT-04)",
+          "Melhorias na API",
+          "Desenvolvimento completo do dashboard web",
+        ],
+        note: "O site e o projeto pertencem à IASense. Minha participação no desenvolvimento foi realizada durante minha bolsa de pesquisa FAPESP TT-04.",
+        imgCaption: "Imagem ilustrativa",
+      },
+    ] as Highlight[],
+  },
+  projects: {
+    title: "Projetos pessoais",
+    intro: "Projetos que desenvolvi de forma independente, por iniciativa própria.",
+    previewAlt: (title: string) => `Prévia de ${title}`,
+    items: [
+      {
+        ...JOGOTECA,
+        desc: "Aplicativo desktop para organizar um backlog pessoal de jogos: listas em kanban, nota e review por jogo, com catálogo opcional via IGDB ou RAWG.",
+      },
+      {
+        ...CRIPTOPRICE,
+        desc: "Extensão para Chrome que mostra o preço de BTC e ETH em USD ou BRL em tempo real, com dados da API da CoinGecko. Publicada na Chrome Web Store.",
+      },
+      {
+        ...PARTICIPANTES,
+        title: "Gestão de Participantes",
+        desc: "Painel para gerenciar participantes de eventos, com listagem, busca e paginação.",
+      },
+      {
+        ...HAPPY,
+        title: "Happy — Orfanatos",
+        desc: "Plataforma para conectar pessoas a orfanatos, com cadastro e visualização de instituições.",
+      },
+    ] as Project[],
+  },
+  about: {
+    title: "Sobre",
+    quote:
+      "Gosto de transformar processos manuais em software simples e confiável. Fora do código: jogos, academia e música.",
+    items: [
+      { t: "Formação", d: "Análise e Desenvolvimento de Sistemas." },
+      { t: "Full stack", d: "Do modelo de dados à interface, passando por APIs." },
+      { t: "Automação", d: "Rotinas automatizadas e integração entre sistemas." },
+      { t: "Inteligência artificial", d: "Aplicações que usam IA para resolver problemas reais." },
+    ],
+  },
+  contact: {
+    eyebrow: "05 — Contato",
+    title: "Tem um projeto ou vaga em mente? Vamos conversar.",
+  },
+};
+
+export type Content = typeof pt;
+
+const en: Content = {
+  meta: {
+    htmlLang: "en",
+    title: "Nicolas Murtha — Full Stack Developer",
+    description:
+      "Portfolio of Nicolas Murtha, a full stack developer focused on web applications, systems integration, automation and AI.",
+  },
+  resume: {
+    url: asset("resume.pdf"),
+    filename: "Resume Nicolas Murtha.pdf",
+    unavailable: "The resume is not available for download yet.",
+  },
+  whatsapp: whatsapp("Hello, Nicolas Murtha"),
+  ui: {
+    nav: { stack: "Stack", professional: "Professional", personal: "Personal", about: "About" },
+    resumeShort: "Resume",
+    downloadResume: "Download resume",
+    themeToLight: "Switch to light mode",
+    themeToDark: "Switch to dark mode",
+    themeLight: "Light mode",
+    themeDark: "Dark mode",
+    langLabel: "Language",
+    footer: "Built with React + TypeScript",
+  },
+  hero: {
+    badge: "Open to new opportunities",
+    title: { before: "", em: "Full stack", after: " developer who builds from the database to the interface." },
+    intro:
+      "I'm Nicolas Murtha, with a degree in Systems Analysis and Development. I work with web applications, process automation, systems integration and AI-powered solutions.",
+    seeProjects: "See projects",
+    talk: "Get in touch",
+    photoAlt: "Photo of Nicolas Murtha",
+  },
+  facts: [
+    { k: "education", v: "Systems Analysis and Development" },
+    { k: "focus", v: "automation · integrations · AI" },
+    { k: "highlights", v: "IASense · IABug" },
+    { k: "status", v: "open to new opportunities" },
+  ],
+  stack: {
+    title: "Tech stack",
+    groups: [
+      { title: "Frontend", items: ["React", "TypeScript", "Tailwind CSS", "HTML / CSS / JS"] },
+      { title: "Backend", items: ["Node.js", "C# / .NET", "REST APIs", "Systems integration"] },
+      { title: "Data", items: ["MySQL", "SQLite", "Relational modeling", "SQL"] },
+      { title: "Automation & AI", items: ["Process automation", "LLM integration", "Scripts & integrations"] },
+    ],
+  },
+  highlights: {
+    title: "Professional & research projects",
+    intro:
+      "Work done during my professional experience and FAPESP research scholarship. The projects belong to their respective organizations; below is my contribution to each one.",
+    contribution: "My contribution",
+    visit: "Visit",
+    imgAlt: (title: string) => `${title} project`,
+    imgAltCaption: (caption: string, title: string) => `${caption} of the ${title} project`,
+    pending: "// screenshot pending",
+    items: [
+      {
+        ...IASENSE,
+        tag: "Corporate website",
+        desc: "Design and development of IASense's corporate website in Webflow, including the implementation of its visual identity, page structure, layout and responsive experience.",
+        contributions: ["Complete website design", "Development and implementation in Webflow"],
+        note: "The website and the brand belong to IASense. I was responsible for the design and development at IASense's request, during my partnership with the company.",
+      },
+      {
+        ...IABUG,
+        tag: "Research & development · FAPESP TT-04 research scholarship",
+        desc: "Research and development project to detect sugarcane borer larvae (*Diatraea saccharalis*) using computer vision and YOLO-based AI. The solution brings together an image-upload app, an API and a dashboard to view and manage the detection results.",
+        contributions: [
+          "Full stack developer on the project (FAPESP TT-04 research scholarship)",
+          "API improvements",
+          "Complete development of the web dashboard",
+        ],
+        note: "The website and the project belong to IASense. My contribution to the development was made during my FAPESP TT-04 research scholarship.",
+        imgCaption: "Illustrative image",
+      },
+    ],
+  },
+  projects: {
+    title: "Personal projects",
+    intro: "Projects I developed independently, on my own initiative.",
+    previewAlt: (title: string) => `Preview of ${title}`,
+    items: [
+      {
+        ...JOGOTECA,
+        desc: "Desktop app to organize a personal video game backlog: kanban lists, a rating and review for each game, and an optional IGDB or RAWG catalog.",
+      },
+      {
+        ...CRIPTOPRICE,
+        desc: "Chrome extension that shows BTC and ETH prices in USD or BRL in real time, with data from the CoinGecko API. Published on the Chrome Web Store.",
+      },
+      {
+        ...PARTICIPANTES,
+        title: "Attendee Management",
+        desc: "Dashboard to manage event attendees, with listing, search and pagination.",
+      },
+      {
+        ...HAPPY,
+        title: "Happy — Orphanages",
+        desc: "Platform that connects people with orphanages, with registration and browsing of institutions.",
+      },
+    ],
+  },
+  about: {
+    title: "About",
+    quote: "I like turning manual processes into simple, reliable software. Outside of code: games, the gym and music.",
+    items: [
+      { t: "Education", d: "Systems Analysis and Development." },
+      { t: "Full stack", d: "From the data model to the interface, through APIs." },
+      { t: "Automation", d: "Automated routines and integration between systems." },
+      { t: "Artificial intelligence", d: "Applications that use AI to solve real problems." },
+    ],
+  },
+  contact: {
+    eyebrow: "05 — Contact",
+    title: "Have a project or a role in mind? Let's talk.",
+  },
+};
+
+export const CONTENT: Record<Lang, Content> = { pt, en };

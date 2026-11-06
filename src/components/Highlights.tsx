@@ -1,5 +1,5 @@
 import { ArrowUpRight, Info } from "lucide-react";
-import { HIGHLIGHTS } from "../data";
+import { useLang } from "../i18n";
 import SectionTitle from "./SectionTitle";
 import Tags from "./Tags";
 
@@ -9,15 +9,16 @@ function withItalics(text: string) {
 }
 
 export default function Highlights() {
+  const { t } = useLang();
+  const s = t.highlights;
   return (
     <section id="destaques" className="mx-auto max-w-6xl px-6 py-20">
-      <SectionTitle n="02">Projetos profissionais e de pesquisa</SectionTitle>
+      <SectionTitle n="02">{s.title}</SectionTitle>
       <p className="-mt-4 mb-10 max-w-2xl text-muted-foreground">
-        Trabalhos realizados durante minha experiência profissional e bolsa de pesquisa FAPESP. Os
-        projetos pertencem às respectivas organizações; abaixo está a minha contribuição em cada um.
+        {s.intro}
       </p>
       <div className="space-y-8">
-        {HIGHLIGHTS.map((h) => (
+        {s.items.map((h) => (
           <article
             key={h.n}
             className="grid overflow-hidden rounded-xl border border-border bg-card transition hover:shadow-lg md:grid-cols-[1fr_320px]"
@@ -30,7 +31,7 @@ export default function Highlights() {
               <h3 className="mt-4 font-serif text-3xl font-semibold tracking-tight md:text-4xl">{h.title}</h3>
               <p className="mt-4 max-w-xl text-muted-foreground">{withItalics(h.desc)}</p>
               <div className="mt-6">
-                <div className="font-mono text-xs uppercase tracking-wider text-primary">Minha contribuição</div>
+                <div className="font-mono text-xs uppercase tracking-wider text-primary">{s.contribution}</div>
                 <ul className="mt-3 space-y-1.5 text-sm">
                   {h.contributions.map((c) => (
                     <li key={c} className="flex gap-2">
@@ -53,7 +54,7 @@ export default function Highlights() {
                 rel="noreferrer"
                 className="mt-7 inline-flex items-center gap-2 rounded-md border border-border px-4 py-2.5 text-sm font-medium transition hover:border-foreground"
               >
-                Visitar {h.title} <ArrowUpRight className="h-4 w-4" />
+                {s.visit} {h.title} <ArrowUpRight className="h-4 w-4" />
               </a>
             </div>
             <div className="flex items-center border-t border-border bg-muted/40 p-6 md:border-l md:border-t-0">
@@ -61,7 +62,7 @@ export default function Highlights() {
                 <figure className="w-full">
                   <img
                     src={h.img}
-                    alt={h.imgCaption ? `${h.imgCaption} do projeto ${h.title}` : `Projeto ${h.title}`}
+                    alt={h.imgCaption ? s.imgAltCaption(h.imgCaption, h.title) : s.imgAlt(h.title)}
                     className={`${h.imgAspect ?? "aspect-[4/5]"} w-full rounded-lg object-cover`}
                   />
                   {h.imgCaption && (
@@ -73,7 +74,7 @@ export default function Highlights() {
               ) : (
                 <div className="w-full rounded-lg border border-dashed border-border bg-background p-8 text-center">
                   <div className="font-serif text-3xl font-semibold">{h.title}</div>
-                  <div className="mt-3 font-mono text-[11px] text-muted-foreground">// captura pendente</div>
+                  <div className="mt-3 font-mono text-[11px] text-muted-foreground">{s.pending}</div>
                 </div>
               )}
             </div>

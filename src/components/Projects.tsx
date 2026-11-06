@@ -1,17 +1,19 @@
 import { ArrowUpRight } from "lucide-react";
-import { PROJECTS } from "../data";
+import { useLang } from "../i18n";
 import SectionTitle from "./SectionTitle";
 import Tags from "./Tags";
 
 export default function Projects() {
+  const { t } = useLang();
+  const s = t.projects;
   return (
     <section id="projetos" className="mx-auto max-w-6xl px-6 py-20">
-      <SectionTitle n="03">Projetos pessoais</SectionTitle>
+      <SectionTitle n="03">{s.title}</SectionTitle>
       <p className="-mt-4 mb-10 max-w-2xl text-muted-foreground">
-        Projetos que desenvolvi de forma independente, por iniciativa própria.
+        {s.intro}
       </p>
       <div className="grid gap-8 md:grid-cols-2">
-        {PROJECTS.map((p) => (
+        {s.items.map((p) => (
           <a
             key={p.n}
             href={p.url}
@@ -24,7 +26,7 @@ export default function Projects() {
                 <div className="flex h-full w-full items-center justify-center p-6">
                   <img
                     src={p.preview}
-                    alt={`Prévia de ${p.title}`}
+                    alt={s.previewAlt(p.title)}
                     className="max-h-full w-auto rounded-md border border-border shadow-sm"
                   />
                 </div>

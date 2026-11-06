@@ -1,21 +1,25 @@
 import { ArrowUpRight, Download, Github, Linkedin, MessageCircle } from "lucide-react";
-import { FACTS, LINKS, PROFILE_PHOTO } from "../data";
+import { LINKS, PROFILE_PHOTO } from "../data";
+import { useLang } from "../i18n";
 import { downloadResume } from "../resume";
 
 export default function Hero() {
+  const { t } = useLang();
+  const h = t.hero;
   return (
     <section id="topo" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
       <div className="grid items-center gap-10 md:grid-cols-[1fr_260px] lg:grid-cols-[1fr_320px] lg:gap-16">
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 font-mono text-xs text-muted-foreground">
-            <span className="h-2 w-2 rounded-full bg-primary" /> Disponível para novas oportunidades
+            <span className="h-2 w-2 rounded-full bg-primary" /> {h.badge}
           </span>
           <h1 className="mt-6 max-w-4xl font-serif text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
-            Desenvolvedor <em className="text-primary">full stack</em> que constrói do banco à interface.
+            {h.title.before}
+            <em className="text-primary">{h.title.em}</em>
+            {h.title.after}
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            Sou Nicolas Murtha, formado em Análise e Desenvolvimento de Sistemas. Trabalho com aplicações web, automação
-            de processos, integração de sistemas e soluções com inteligência artificial.
+            {h.intro}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -23,21 +27,21 @@ export default function Hero() {
               href="#destaques"
               className="inline-flex items-center gap-2 rounded-md bg-foreground px-5 py-3 text-sm font-medium text-background transition hover:opacity-90"
             >
-              Ver projetos <ArrowUpRight className="h-4 w-4" />
+              {h.seeProjects} <ArrowUpRight className="h-4 w-4" />
             </a>
             <button
-              onClick={downloadResume}
+              onClick={() => downloadResume(t.resume)}
               className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-medium transition hover:border-foreground"
             >
-              <Download className="h-4 w-4" /> Baixar currículo
+              <Download className="h-4 w-4" /> {t.ui.downloadResume}
             </button>
             <a
-              href={LINKS.whatsapp}
+              href={t.whatsapp}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-medium transition hover:border-foreground"
             >
-              Falar comigo
+              {h.talk}
             </a>
           </div>
 
@@ -61,7 +65,7 @@ export default function Hero() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href={LINKS.whatsapp}
+              href={t.whatsapp}
               target="_blank"
               rel="noreferrer"
               aria-label="WhatsApp"
@@ -80,7 +84,7 @@ export default function Hero() {
               sizes="(min-width: 1024px) 320px, (min-width: 768px) 260px, (min-width: 640px) 192px, 160px"
               width={PROFILE_PHOTO.width}
               height={PROFILE_PHOTO.height}
-              alt={PROFILE_PHOTO.alt}
+              alt={h.photoAlt}
               fetchPriority="high"
               decoding="async"
               className="absolute inset-x-0 bottom-0 h-auto w-full"
@@ -90,7 +94,7 @@ export default function Hero() {
       </div>
 
       <dl className="mt-16 flex flex-wrap gap-x-12 gap-y-6 border-t border-border pt-8">
-        {FACTS.map((f) => (
+        {t.facts.map((f) => (
           <div key={f.k} className="min-w-[180px]">
             <dt className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">{f.k}</dt>
             <dd className="mt-2 text-sm">{f.v}</dd>
