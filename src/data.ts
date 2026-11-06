@@ -153,9 +153,9 @@ const pt = {
       {
         ...IASENSE,
         tag: "Site institucional",
-        desc: "Design e desenvolvimento do site institucional da IASense em Webflow, incluindo a implementação da identidade visual, a estrutura de páginas, o layout e a experiência responsiva.",
-        contributions: ["Design completo do site", "Desenvolvimento e implementação em Webflow"],
-        note: "O site e a marca pertencem à IASense. Fui responsável pelo design e pelo desenvolvimento a pedido da IASense, durante minha parceria com a empresa.",
+        desc: "Redesign e desenvolvimento do site institucional da IASense em Webflow, incluindo a implementação da identidade visual, a estrutura de páginas, o layout e a experiência responsiva.",
+        contributions: ["Redesign do site", "Desenvolvimento e implementação em Webflow"],
+        note: "O site e a marca pertencem à IASense. Fui responsável pelo redesign e pelo desenvolvimento a pedido da IASense, durante minha parceria com a empresa.",
       },
       {
         ...IABUG,
@@ -276,9 +276,9 @@ const en: Content = {
       {
         ...IASENSE,
         tag: "Corporate website",
-        desc: "Design and development of IASense's corporate website in Webflow, including the implementation of its visual identity, page structure, layout and responsive experience.",
-        contributions: ["Complete website design", "Development and implementation in Webflow"],
-        note: "The website and the brand belong to IASense. I was responsible for the design and development at IASense's request, during my partnership with the company.",
+        desc: "Redesign and development of IASense's corporate website in Webflow, including the implementation of its visual identity, page structure, layout and responsive experience.",
+        contributions: ["Website redesign", "Development and implementation in Webflow"],
+        note: "The website and the brand belong to IASense. I was responsible for the redesign and development at IASense's request, during my partnership with the company.",
       },
       {
         ...IABUG,
