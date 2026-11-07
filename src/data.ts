@@ -152,7 +152,8 @@ const pt = {
       { title: "Frontend", items: ["React", "TypeScript", "Tailwind CSS", "HTML / CSS / JS"] },
       { title: "Backend", items: ["Python", "Node.js", "FastAPI", "APIs REST"] },
       { title: "Dados", items: ["MySQL", "PostgreSQL", "SQLite"] },
-      { title: "Automação & RPA", items: ["Python + Selenium", "Blue Prism", "Integração de sistemas"] },
+      { title: "Automação & RPA", items: ["Python + Selenium", "Integração de sistemas"] },
+      { title: "Ferramentas & DevOps", items: ["Git", "GitHub Actions", "Docker", "AWS"] },
     ],
   },
   experience: {
@@ -320,7 +321,8 @@ const en: Content = {
       { title: "Frontend", items: ["React", "TypeScript", "Tailwind CSS", "HTML / CSS / JS"] },
       { title: "Backend", items: ["Python", "Node.js", "FastAPI", "REST APIs"] },
       { title: "Data", items: ["MySQL", "PostgreSQL", "SQLite"] },
-      { title: "Automation & RPA", items: ["Python + Selenium", "Blue Prism", "Systems integration"] },
+      { title: "Automation & RPA", items: ["Python + Selenium", "Systems integration"] },
+      { title: "Tools & DevOps", items: ["Git", "GitHub Actions", "Docker", "AWS"] },
     ],
   },
   experience: {
