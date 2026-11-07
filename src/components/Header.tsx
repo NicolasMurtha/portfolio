@@ -58,12 +58,13 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-20 border-b border-border bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#topo" className="font-serif text-xl font-semibold tracking-tight">
+        <a href="#topo" className="whitespace-nowrap font-serif text-xl font-semibold tracking-tight">
           Nicolas Murtha<span className="text-primary">.</span>
         </a>
         <div className="flex items-center gap-3 sm:gap-4">
-          <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
+          <nav className="hidden items-center gap-6 text-sm text-muted-foreground lg:flex xl:gap-8">
             <a href="#stack" className="hover:text-foreground">{t.ui.nav.stack}</a>
+            <a href="#experiencia" className="hover:text-foreground">{t.ui.nav.experience}</a>
             <a href="#destaques" className="hover:text-foreground">{t.ui.nav.professional}</a>
             <a href="#projetos" className="hover:text-foreground">{t.ui.nav.personal}</a>
             <a href="#sobre" className="hover:text-foreground">{t.ui.nav.about}</a>

@@ -2,6 +2,7 @@ import { Toaster } from "sonner";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Stack from "./components/Stack";
+import Experience from "./components/Experience";
 import Highlights from "./components/Highlights";
 import Projects from "./components/Projects";
 import About from "./components/About";
@@ -17,6 +18,7 @@ export default function App() {
       <main>
         <Hero />
         <Stack />
+        <Experience />
         <Highlights />
         <Projects />
         <About />

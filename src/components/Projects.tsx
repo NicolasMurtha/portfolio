@@ -8,7 +8,7 @@ export default function Projects() {
   const s = t.projects;
   return (
     <section id="projetos" className="mx-auto max-w-6xl px-6 py-20">
-      <SectionTitle n="03">{s.title}</SectionTitle>
+      <SectionTitle n="04">{s.title}</SectionTitle>
       <p className="-mt-4 mb-10 max-w-2xl text-muted-foreground">
         {s.intro}
       </p>

@@ -13,7 +13,7 @@ export default function Highlights() {
   const s = t.highlights;
   return (
     <section id="destaques" className="mx-auto max-w-6xl px-6 py-20">
-      <SectionTitle n="02">{s.title}</SectionTitle>
+      <SectionTitle n="03">{s.title}</SectionTitle>
       <p className="-mt-4 mb-10 max-w-2xl text-muted-foreground">
         {s.intro}
       </p>

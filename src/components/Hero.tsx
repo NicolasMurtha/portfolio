@@ -1,4 +1,4 @@
-import { ArrowUpRight, Download, Github, Linkedin, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Download, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { LINKS, PROFILE_PHOTO } from "../data";
 import { useLang } from "../i18n";
 import { downloadResume } from "../resume";
@@ -13,7 +13,7 @@ export default function Hero() {
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 font-mono text-xs text-muted-foreground">
             <span className="h-2 w-2 rounded-full bg-primary" /> {h.badge}
           </span>
-          <h1 className="mt-6 max-w-4xl font-serif text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
+          <h1 className="mt-6 max-w-4xl font-serif text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
             {h.title.before}
             <em className="text-primary">{h.title.em}</em>
             {h.title.after}
@@ -72,6 +72,9 @@ export default function Hero() {
               className="hover:text-foreground"
             >
               <MessageCircle className="h-5 w-5" />
+            </a>
+            <a href={t.email} aria-label="E-mail" className="hover:text-foreground">
+              <Mail className="h-5 w-5" />
             </a>
           </div>
         </div>

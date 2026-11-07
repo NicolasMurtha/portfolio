@@ -1,4 +1,4 @@
-import { Download, Github, Linkedin, MessageCircle } from "lucide-react";
+import { Download, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { LINKS } from "../data";
 import { useLang } from "../i18n";
 import { downloadResume } from "../resume";
@@ -20,6 +20,12 @@ export default function Contact() {
             className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:opacity-90"
           >
             <MessageCircle className="h-4 w-4" /> WhatsApp
+          </a>
+          <a
+            href={t.email}
+            className="inline-flex items-center gap-2 rounded-md border border-background/30 px-5 py-3 text-sm font-medium hover:border-background"
+          >
+            <Mail className="h-4 w-4" /> E-mail
           </a>
           <button
             onClick={() => downloadResume(t.resume)}

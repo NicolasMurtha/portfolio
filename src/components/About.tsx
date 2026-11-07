@@ -9,7 +9,7 @@ export default function About() {
   const { t } = useLang();
   return (
     <section id="sobre" className="mx-auto max-w-6xl px-6 py-20">
-      <SectionTitle n="04">{t.about.title}</SectionTitle>
+      <SectionTitle n="05">{t.about.title}</SectionTitle>
       <div className="grid gap-12 md:grid-cols-[1fr_1.2fr]">
         <p className="font-serif text-2xl leading-snug">
           {t.about.quote}

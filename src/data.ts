@@ -6,6 +6,10 @@ const asset = (path: string) => import.meta.env.BASE_URL + path;
 
 export type Lang = "pt" | "en";
 
+export const EMAIL = "nickymurtha@gmail.com";
+
+const mailto = (subject: string) => `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}`;
+
 export const LINKS = {
   github: "https://github.com/NicolasMurtha",
   linkedin: "https://www.linkedin.com/in/nicolas-murtha-5b292b1ba/",
@@ -40,6 +44,16 @@ export type Highlight = {
   imgAspect?: string;
   /** Legenda abaixo da imagem (ex.: quando é ilustrativa) */
   imgCaption?: string;
+};
+
+export type Experience = {
+  dates: string;
+  role: string;
+  org: string;
+  /** Resultado em destaque (opcional) */
+  metric?: { value: string; label: string };
+  bullets: string[];
+  tags: string[];
 };
 
 export type Project = {
@@ -105,8 +119,9 @@ const pt = {
     unavailable: "O currículo ainda não está disponível para download.",
   },
   whatsapp: whatsapp("Olá, Nicolas Murtha"),
+  email: mailto("Contato pelo portfólio"),
   ui: {
-    nav: { stack: "Stack", professional: "Profissional", personal: "Pessoais", about: "Sobre" },
+    nav: { stack: "Stack", experience: "Experiência", professional: "Profissional", personal: "Pessoais", about: "Sobre" },
     resumeShort: "Currículo",
     downloadResume: "Baixar currículo",
     themeToLight: "Ativar modo claro",
@@ -118,9 +133,9 @@ const pt = {
   },
   hero: {
     badge: "Disponível para novas oportunidades",
-    title: { before: "Desenvolvedor ", em: "full stack", after: " que constrói do banco à interface." },
+    title: { before: "Desenvolvedor ", em: "full stack", after: " com experiência em automação, dashboards e integração de sistemas." },
     intro:
-      "Sou Nicolas Murtha, formado em Análise e Desenvolvimento de Sistemas. Trabalho com aplicações web, automação de processos, integração de sistemas e soluções com inteligência artificial.",
+      "Sou Nicolas Murtha, formado em Análise e Desenvolvimento de Sistemas. Atuo em qualquer camada de um sistema — banco de dados, back-end, front-end, automação RPA e soluções com IA — e me adapto rápido a novas stacks.",
     seeProjects: "Ver projetos",
     talk: "Falar comigo",
     photoAlt: "Foto de Nicolas Murtha",
@@ -135,10 +150,50 @@ const pt = {
     title: "Stack técnica",
     groups: [
       { title: "Frontend", items: ["React", "TypeScript", "Tailwind CSS", "HTML / CSS / JS"] },
-      { title: "Backend", items: ["Node.js", "C# / .NET", "APIs REST", "Integração de sistemas"] },
-      { title: "Dados", items: ["MySQL", "SQLite", "Modelagem relacional", "SQL"] },
-      { title: "Automação & IA", items: ["Automação de processos", "Integração com LLMs", "Scripts & integrações"] },
+      { title: "Backend", items: ["Python", "Node.js", "FastAPI", "C# / .NET", "APIs REST"] },
+      { title: "Dados", items: ["MySQL", "PostgreSQL", "SQLite", "SQL"] },
+      { title: "Automação & RPA", items: ["Python + Selenium", "Blue Prism", "VBA", "Integração de sistemas"] },
     ],
+  },
+  experience: {
+    title: "Experiência",
+    prev: "Experiência anterior",
+    next: "Próxima experiência",
+    position: (i: number, n: number) => `${i} de ${n}`,
+    items: [
+      {
+        dates: "01/2026 – 10/2026",
+        role: "Desenvolvedor Full Stack — Bolsista FAPESP TT-04",
+        org: "IASense",
+        bullets: [
+          "Desenvolvimento completo do dashboard web do IABug, plataforma de detecção da broca-da-cana por visão computacional.",
+          "Melhorias na API do sistema, com persistência em MySQL.",
+        ],
+        tags: ["React", "Tailwind CSS", "Node.js", "FastAPI", "MySQL"],
+      },
+      {
+        dates: "10/2024 – 06/2025",
+        role: "Desenvolvedor RPA",
+        org: "Bild & Vitta Desenvolvimento Imobiliário",
+        metric: { value: "−55,8%", label: "no tempo de execução após migrar automações do Blue Prism para Python" },
+        bullets: [
+          "Automações em Python e Selenium integradas a sistemas web corporativos e APIs REST.",
+          "Análise de fluxos de sistemas para extração, validação e persistência de dados.",
+        ],
+        tags: ["Python", "Selenium", "Blue Prism", "APIs REST"],
+      },
+      {
+        dates: "11/2020 – 12/2023",
+        role: "Analista de TI",
+        org: "Grupo Movimente",
+        bullets: [
+          "Suporte e validação de dashboards de Business Intelligence.",
+          "Scripts em Python e VBA para automação de tarefas e inserção de dados em sistemas web.",
+          "Definição de requisitos e melhorias para sistemas web corporativos em PHP.",
+        ],
+        tags: ["Python", "VBA", "BI", "PHP"],
+      },
+    ] as Experience[],
   },
   highlights: {
     title: "Projetos profissionais e de pesquisa",
@@ -208,7 +263,7 @@ const pt = {
     ],
   },
   contact: {
-    eyebrow: "05 — Contato",
+    eyebrow: "06 — Contato",
     title: "Tem um projeto ou vaga em mente? Vamos conversar.",
   },
 };
@@ -228,8 +283,9 @@ const en: Content = {
     unavailable: "The resume is not available for download yet.",
   },
   whatsapp: whatsapp("Hello, Nicolas Murtha"),
+  email: mailto("Contact from your portfolio"),
   ui: {
-    nav: { stack: "Stack", professional: "Professional", personal: "Personal", about: "About" },
+    nav: { stack: "Stack", experience: "Experience", professional: "Professional", personal: "Personal", about: "About" },
     resumeShort: "Resume",
     downloadResume: "Download resume",
     themeToLight: "Switch to light mode",
@@ -241,9 +297,9 @@ const en: Content = {
   },
   hero: {
     badge: "Open to new opportunities",
-    title: { before: "", em: "Full stack", after: " developer who builds from the database to the interface." },
+    title: { before: "", em: "Full stack", after: " developer with experience in automation, dashboards and systems integration." },
     intro:
-      "I'm Nicolas Murtha, with a degree in Systems Analysis and Development. I work with web applications, process automation, systems integration and AI-powered solutions.",
+      "I'm Nicolas Murtha, with a degree in Systems Analysis and Development. I work across every layer of a system — databases, back-end, front-end, RPA automation and AI solutions — and pick up new stacks quickly.",
     seeProjects: "See projects",
     talk: "Get in touch",
     photoAlt: "Photo of Nicolas Murtha",
@@ -258,9 +314,49 @@ const en: Content = {
     title: "Tech stack",
     groups: [
       { title: "Frontend", items: ["React", "TypeScript", "Tailwind CSS", "HTML / CSS / JS"] },
-      { title: "Backend", items: ["Node.js", "C# / .NET", "REST APIs", "Systems integration"] },
-      { title: "Data", items: ["MySQL", "SQLite", "Relational modeling", "SQL"] },
-      { title: "Automation & AI", items: ["Process automation", "LLM integration", "Scripts & integrations"] },
+      { title: "Backend", items: ["Python", "Node.js", "FastAPI", "C# / .NET", "REST APIs"] },
+      { title: "Data", items: ["MySQL", "PostgreSQL", "SQLite", "SQL"] },
+      { title: "Automation & RPA", items: ["Python + Selenium", "Blue Prism", "VBA", "Systems integration"] },
+    ],
+  },
+  experience: {
+    title: "Experience",
+    prev: "Previous role",
+    next: "Next role",
+    position: (i: number, n: number) => `${i} of ${n}`,
+    items: [
+      {
+        dates: "Jan 2026 – Oct 2026",
+        role: "Full Stack Developer — FAPESP TT-04 Research Scholarship",
+        org: "IASense",
+        bullets: [
+          "Built the entire web dashboard for IABug, a computer vision platform that detects the sugarcane borer.",
+          "Improved the system's API, backed by MySQL.",
+        ],
+        tags: ["React", "Tailwind CSS", "Node.js", "FastAPI", "MySQL"],
+      },
+      {
+        dates: "Oct 2024 – Jun 2025",
+        role: "RPA Developer",
+        org: "Bild & Vitta Desenvolvimento Imobiliário",
+        metric: { value: "−55.8%", label: "execution time after migrating automations from Blue Prism to Python" },
+        bullets: [
+          "Python and Selenium automations integrated with corporate web systems and REST APIs.",
+          "Analyzed system flows to extract, validate and persist data.",
+        ],
+        tags: ["Python", "Selenium", "Blue Prism", "REST APIs"],
+      },
+      {
+        dates: "Nov 2020 – Dec 2023",
+        role: "IT Analyst",
+        org: "Grupo Movimente",
+        bullets: [
+          "Supported and validated Business Intelligence dashboards.",
+          "Python and VBA scripts to automate tasks and enter data into web systems.",
+          "Defined requirements and improvements for corporate web systems built in PHP.",
+        ],
+        tags: ["Python", "VBA", "BI", "PHP"],
+      },
     ],
   },
   highlights: {
@@ -330,7 +426,7 @@ const en: Content = {
     ],
   },
   contact: {
-    eyebrow: "05 — Contact",
+    eyebrow: "06 — Contact",
     title: "Have a project or a role in mind? Let's talk.",
   },
 };
